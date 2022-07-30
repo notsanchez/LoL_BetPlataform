@@ -1,0 +1,61 @@
+{
+  "user": [
+    {
+      "id": "dussin",
+      "password": "321",
+      "credits": 0
+    },
+    {
+      "id": "sanchez",
+      "password": "123",
+      "credits": 0
+    }
+  ],
+  "tournament": [
+    {
+      "id": 1,
+      "totalPlayers": 3,
+      "reward": 250,
+      "tax": 1,
+      "bestOf": 3,
+      "duration": 3,
+      "mode": "Solo/Duo",
+      "players": [
+        "dussin",
+        "sanchez2",
+        "sanchez"
+      ]
+    },
+    {
+      "id": 2,
+      "totalPlayers": 100,
+      "reward": 100,
+      "tax": 1,
+      "bestOf": 3,
+      "mode": "Solo/Duo",
+      "players": [
+        "sanchez"
+      ]
+    },
+    {
+      "id": 3,
+      "totalPlayers": 50,
+      "reward": 100,
+      "tax": 1,
+      "bestOf": 3,
+      "mode": "Solo/Duo",
+      "players": [
+        "sanchez"
+      ]
+    },
+    {
+      "id": 4,
+      "totalPlayers": 150,
+      "reward": 100,
+      "tax": 1,
+      "bestOf": 1,
+      "mode": "Flex",
+      "players": []
+    }
+  ]
+}
