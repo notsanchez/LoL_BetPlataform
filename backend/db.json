@@ -1,13 +1,19 @@
 {
   "user": [
     {
-      "id": "dussin",
+      "id": "wolfgang dussin",
+      "puuid": "9yQb6t4z3aRTLYDsvF9Hz1gFcUZmIcqIwKiN7hUzWNUr1LDdzKk4LpkkDqXJ6PUoSqiL2VgffZzxBQ",
       "password": "321",
+      "lastGameID": "BR1_2560832301",
+      "activeTournamentID": -1,
       "credits": 0
     },
     {
-      "id": "sanchez",
+      "id": "sxsh",
+      "puuid": "Bk8qH6ORpfZ1duBauTl9BZfN2ycQzMAw19zNa1t0cKZ65zaUuo4Zss_IN83E7xNcI1Wc3pqEvqlqyw",
       "password": "123",
+      "lastGameID": "",
+      "activeTournamentID": -1,
       "credits": 0
     }
   ],
@@ -15,45 +21,55 @@
     {
       "id": 1,
       "totalPlayers": 3,
-      "reward": 250,
+      "reward": 3,
       "tax": 1,
-      "bestOf": 3,
+      "bestOf": "MD3",
       "duration": 3,
       "mode": "Solo/Duo",
       "players": [
         "dussin",
-        "sanchez2",
+        "tola",
         "sanchez"
       ]
     },
     {
       "id": 2,
-      "totalPlayers": 100,
-      "reward": 100,
+      "totalPlayers": 50,
+      "reward": 25,
       "tax": 1,
-      "bestOf": 3,
+      "bestOf": "MD3",
+      "duration": 3,
       "mode": "Solo/Duo",
       "players": [
-        "sanchez"
+        "sxsh",
+        "zxv",
+        "manga",
+        "pacoca",
+        "rhyan",
+        "duss1n",
+        "wolfgang dussin"
       ]
     },
     {
       "id": 3,
       "totalPlayers": 50,
-      "reward": 100,
+      "reward": 25,
       "tax": 1,
-      "bestOf": 3,
+      "bestOf": "MD3",
+      "duration": 3,
       "mode": "Solo/Duo",
       "players": [
-        "sanchez"
+        "sanchez",
+        "dussin"
       ]
     },
     {
       "id": 4,
-      "totalPlayers": 150,
-      "reward": 100,
+      "totalPlayers": 50,
+      "reward": 25,
       "tax": 1,
-      "bestOf": 1,
+      "bestOf": "MD1",
+      "duration": 3,
       "mode": "Flex",
       "players": []
     }

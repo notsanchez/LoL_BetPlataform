@@ -20,7 +20,7 @@ const ActiveTournaments = () => {
         <div key={tournament.id} className='w-[300px] h-[490px] bg-blackbg bg-opacity-50 rounded-lg flex flex-col justify-center items-center text-white border-2 border-white'>
             <div className='flex flex-col items-center justify-evenly drop-shadow-lg'>
                 <div className='flex flex-col items-center'>
-                    <h1 className='text-2xl font-bold'>League of legends</h1>
+                    <h1 className='text-2xl font-bold'>League of Legends</h1>
                     <h1 className='text-md font-bold'>{tournament.players.length}/{tournament.totalPlayers}</h1>
                 </div>
 
@@ -44,7 +44,7 @@ const ActiveTournaments = () => {
 
                 <div className='flex flex-col'>
                     <h1 className='text-lg font-semibold opacity-80'>Pontuação</h1>
-                    <h1 className='text-xl font-bold'>Melhores {tournament.bestOf} jogos</h1>
+                    <h1 className='text-xl font-bold'>{tournament.bestOf}</h1>
                 </div>
 
                 <div className='flex flex-col'>

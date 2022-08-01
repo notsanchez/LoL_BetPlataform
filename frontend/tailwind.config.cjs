@@ -42,6 +42,9 @@ module.exports = {
         primary: "#6E35B8",
         blackbg: "#131313",
         secondaryblack: "#0B0B0B",
+        gold: "#D6AF36",
+        silver: "#A7A7AD",
+        bronze: "#824A02"
       },
       screens: {
         sm: "640px",

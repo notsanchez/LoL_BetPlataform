@@ -6,7 +6,6 @@ import Prov from './pages/Prov'
 import Tournament from './pages/Tournament'
 import { Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
-import MakeTournament from './utils/makeTournament'
 
 const App = () => {
 
@@ -22,7 +21,6 @@ const App = () => {
             <Route path="/" element={<Home />}/>
             <Route path="/prov" element={<Prov />}/>
             <Route path="/tournament/:id" element={<Tournament />}/>
-            <Route path="/tournamentlive/:id" element={<MakeTournament />}/>
           </>
         ) : (
           <Route path="/" element={<Login />}/>
