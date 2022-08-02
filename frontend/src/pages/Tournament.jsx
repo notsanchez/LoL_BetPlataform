@@ -5,7 +5,7 @@ import axios from 'axios'
 const Tournament = () => {
   const { id } = useParams()
 
-  const API_KEY = "RGAPI-e36d9d69-7cca-4019-8aac-ec173989fd80"
+  const API_KEY = "RGAPI-4c49e603-0eff-4289-8000-0cd5904a48b3"
 
   const user = localStorage.getItem("user")
 
@@ -56,6 +56,7 @@ const Tournament = () => {
             }).catch((err) => {
               console.log(err)
             })
+            
             // Coloca usuario na lista de players do campeonato
             axios.patch('http://localhost:3001/tournament/' + id, {
               players: [...players, user]
