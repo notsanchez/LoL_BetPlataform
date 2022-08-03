@@ -3,7 +3,11 @@
     {
       "id": "wolfgang dussin",
       "puuid": "9yQb6t4z3aRTLYDsvF9Hz1gFcUZmIcqIwKiN7hUzWNUr1LDdzKk4LpkkDqXJ6PUoSqiL2VgffZzxBQ",
+      "email": "d@gmail.com",
       "password": "321",
+      "cpf": "123.123.123-12",
+      "phone": "+55 (12)312312312",
+      "birthday": "12/31/2003",
       "lastGameID": "BR1_2560832301",
       "activeTournamentID": -1,
       "credits": 0
@@ -11,8 +15,36 @@
     {
       "id": "sxsh",
       "puuid": "Bk8qH6ORpfZ1duBauTl9BZfN2ycQzMAw19zNa1t0cKZ65zaUuo4Zss_IN83E7xNcI1Wc3pqEvqlqyw",
+      "email": "s@gmail.com",
       "password": "123",
+      "cpf": "123.123.123-12",
+      "phone": "+55 (12)312312312",
+      "birthday": "12/31/2003",
       "lastGameID": "",
+      "activeTournamentID": -1,
+      "credits": 0
+    },
+    {
+      "id": "Jardineirov2",
+      "puuid": "XbFTcP5I-T1wp2uslcinmOByG2zjvoJ77pXdip-Y0mTgkMt8NVIQkHJRfbktM7eQcuYshKEhM6HYvQ",
+      "email": "du@gmail.com",
+      "password": "123123",
+      "cpf": "123.123.123-12",
+      "phone": "+55 (12)312312312",
+      "birthday": "12/31/2003",
+      "lastGameID": "BR1_2563554448",
+      "activeTournamentID": -1,
+      "credits": 0
+    },
+    {
+      "id": "Sona Feitiçaria",
+      "puuid": "Z2FbEGT_gL28fRKg5igB88iBEdzeKgi3QSxYSI2cwirnGgYQeV-j7J32Q3SeeilMMpDHCcdoJ0StiQ",
+      "email": "alah@gmail.com",
+      "password": "123123",
+      "cpf": "123.123.123-12",
+      "phone": "+55 (12)312312312",
+      "birthday": "12/31/2003",
+      "lastGameID": "BR1_2566562913",
       "activeTournamentID": -1,
       "credits": 0
     }
@@ -42,12 +74,9 @@
       "mode": "Solo/Duo",
       "players": [
         "sxsh",
-        "zxv",
-        "manga",
-        "pacoca",
-        "rhyan",
-        "duss1n",
-        "wolfgang dussin"
+        "wolfgang dussin",
+        "Jardineirov2",
+        "Sona Feitiçaria"
       ]
     },
     {

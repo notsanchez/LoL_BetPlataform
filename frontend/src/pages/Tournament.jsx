@@ -5,8 +5,6 @@ import axios from 'axios'
 const Tournament = () => {
   const { id } = useParams()
 
-  const API_KEY = "RGAPI-e36d9d69-7cca-4019-8aac-ec173989fd80"
-
   const user = localStorage.getItem("user")
 
   const [tournament, setTournament] = useState('')
@@ -20,7 +18,7 @@ const Tournament = () => {
   useEffect(() => {
     getTournament()
 
-    calculateKDA()
+    // calculateKDA()
 
     // Pega informações do usuario
     axios.get('http://localhost:3001/user/' + user).then((res) => {
@@ -47,7 +45,7 @@ const Tournament = () => {
 
   const entryTournament = () => {
     if (!players.includes(user) && players.length < tournament.totalPlayers) {
-      axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userData.puuid}/ids?queue=420&type=ranked&start=0&count=1&api_key=${API_KEY}`)
+      axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userData.puuid}/ids?queue=420&type=ranked&start=0&count=1&api_key=${import.meta.env.VITE_API_KEY}`)
         .then((res) => {
           if (res.data.length === 1) {
             // Pega a ultima partida do usuario e falha se nao conseguir achar
@@ -56,11 +54,10 @@ const Tournament = () => {
             }).catch((err) => {
               console.log(err)
             })
+            
             // Coloca usuario na lista de players do campeonato
             axios.patch('http://localhost:3001/tournament/' + id, {
               players: [...players, user]
-            }).then(() => {
-              console.log("entrou")
             }).catch((err) => {
               console.log(err)
             })
@@ -73,7 +70,7 @@ const Tournament = () => {
 
   // Calcula KDA do usuario e confere se ele jogou os 3 jogos de acordo com seu ultimo jogo
   const calculateKDA = () => {
-    axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userData.puuid}/ids?queue=420&type=ranked&start=0&count=100&api_key=${API_KEY}`)
+    axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userData.puuid}/ids?queue=420&type=ranked&start=0&count=100&api_key=${import.meta.env.VITE_API_KEY}`)
       .then((res) => {
         const lastGameIndex = res.data.indexOf(userData.lastGameID)
         let kdaSum = 0
@@ -82,7 +79,7 @@ const Tournament = () => {
         else {
           const lastGames = res.data.filter((game, i) => [lastGameIndex - 1, lastGameIndex - 2, lastGameIndex - 3].some(j => i === j))
           lastGames.forEach((matchID) => {
-            axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${API_KEY}`)
+            axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${matchID}?api_key=${import.meta.env.VITE_API_KEY}`)
               .then((res) => {
                 kdaSum += res.data.info.participants.find((kda) => kda.puuid === userData.puuid).challenges['kda']
               }).catch((err) => {
