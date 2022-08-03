@@ -17,6 +17,15 @@
       "lastGameID": "",
       "activeTournamentID": -1,
       "credits": 0
+    },
+    {
+      "id": "Jardineirov2",
+      "puuid": "XbFTcP5I-T1wp2uslcinmOByG2zjvoJ77pXdip-Y0mTgkMt8NVIQkHJRfbktM7eQcuYshKEhM6HYvQ",
+      "email": "enzodussinN@gmail.com",
+      "password": "123123",
+      "lastGameID": "BR1_2563554448",
+      "activeTournamentID": -1,
+      "credits": 0
     }
   ],
   "tournament": [
@@ -44,12 +53,8 @@
       "mode": "Solo/Duo",
       "players": [
         "sxsh",
-        "zxv",
-        "manga",
-        "pacoca",
-        "rhyan",
-        "duss1n",
-        "wolfgang dussin"
+        "wolfgang dussin",
+        "Jardineirov2"
       ]
     },
     {

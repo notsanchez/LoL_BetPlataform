@@ -6,6 +6,7 @@ import Prov from './pages/Prov'
 import Tournament from './pages/Tournament'
 import { Route, Routes } from 'react-router-dom'
 import Login from './pages/Login'
+import Register from './pages/Register'
 
 const App = () => {
 
@@ -18,12 +19,15 @@ const App = () => {
 
         {user && user ? (
           <>
-            <Route path="/" element={<Home />}/>
-            <Route path="/prov" element={<Prov />}/>
-            <Route path="/tournament/:id" element={<Tournament />}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/prov" element={<Prov />} />
+            <Route path="/tournament/:id" element={<Tournament />} />
           </>
         ) : (
-          <Route path="/" element={<Login />}/>
+          <>
+            <Route path="/register" element={<Register />} />
+            <Route path="/" element={<Login />} />
+          </>
         )}
       </Routes>
       <Footer />

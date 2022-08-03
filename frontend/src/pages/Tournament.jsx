@@ -5,7 +5,7 @@ import axios from 'axios'
 const Tournament = () => {
   const { id } = useParams()
 
-  const API_KEY = "RGAPI-4c49e603-0eff-4289-8000-0cd5904a48b3"
+  const API_KEY = "RGAPI-7a240ccf-e23d-4877-8576-49c4667893e5"
 
   const user = localStorage.getItem("user")
 
@@ -20,7 +20,7 @@ const Tournament = () => {
   useEffect(() => {
     getTournament()
 
-    calculateKDA()
+    // calculateKDA()
 
     // Pega informações do usuario
     axios.get('http://localhost:3001/user/' + user).then((res) => {
@@ -60,8 +60,6 @@ const Tournament = () => {
             // Coloca usuario na lista de players do campeonato
             axios.patch('http://localhost:3001/tournament/' + id, {
               players: [...players, user]
-            }).then(() => {
-              console.log("entrou")
             }).catch((err) => {
               console.log(err)
             })
