@@ -9,7 +9,6 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 
 const App = () => {
-
   const user = localStorage.getItem("user")
 
   return (

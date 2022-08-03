@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-// import CPFInput from './Inputs/CPFInput'
-// import TELInput from './Inputs/TELInput'
-// import BirthdayInput from './Inputs/BirthdayInput'
+import InputMask from "react-input-mask"
 
 const Register = () => {
-    const API_KEY = "RGAPI-7a240ccf-e23d-4877-8576-49c4667893e5"
-
     const [error, setError] = useState('')
-
-    const [states, setStates] = useState('')
-    const [cities, setCities] = useState('')
 
     const createAccount = (e) => {
         e.preventDefault()
@@ -20,24 +13,25 @@ const Register = () => {
         const pw = document.getElementById('password').value
         const c_pw = document.getElementById('c_password').value
 
-        // Collection
-        // const document_id = document.getElementById('document_id').value
-        // const phone = document.getElementById('phone').value
-        // const birthday = document.getElementById('birthday').value
+        const cpf = document.getElementById('cpf').value
+        const phone = document.getElementById('phone').value
+        const birthday = document.getElementById('birthday').value
 
-        const warningBlock = document.getElementById('register-warning-block')
         if (pw !== c_pw) {
             setError('As senhas precisam ser iguais')
             return
         }
 
-        axios.get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${API_KEY}`)
+        axios.get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${name}?api_key=${import.meta.env.VITE_API_KEY}`)
             .then((res) => {
                 axios.post('http://localhost:3001/user', {
                     "id": name,
                     "puuid": res.data.puuid,
                     "email": email,
                     "password": pw,
+                    "cpf": cpf,
+                    "phone": phone,
+                    "birthday": birthday,
                     "lastGameID": "",
                     "activeTournamentID": -1,
                     "credits": 0
@@ -66,11 +60,11 @@ const Register = () => {
                         <span>&#9888; {error}</span>
                     </div>) : ''}
                     <input className='flex p-2 rounded-md w-[100%] my-2' id='name' name='name' type="text" minLength={3} placeholder='NICK ATUAL (LEAGUE OF LEGENDS)' required></input>
-                    <div className='register-flex-2-col id-phone-container'>
-                        {/* <CPFInput />
-                        <TELInput /> */}
+                    <div className='flex flex-row gap-4'>
+                        <InputMask mask="999.999.999-99" className='flex p-2 rounded-md w-[100%] my-2' name='cpf' id="cpf" placeholder='CPF' required />
+                        <InputMask mask="+55 (99)999999999" className='flex p-2 rounded-md w-[100%] my-2' name='phone' id="phone" placeholder='TELEFONE' required />
                     </div>
-                    {/* <BirthdayInput /> */}
+                    <InputMask mask="99/99/9999" className='flex p-2 rounded-md w-[100%] my-2' name='birthday' placeholder="DATA DE NASCIMENTO" id='birthday' type="text" required />
                     <input className='flex p-2 rounded-md w-[100%] my-2' name='email' type="email" id='email' placeholder='E-MAIL' required></input>
                     <input className='flex p-2 rounded-md w-[100%] my-2' name='password' type="password" minLength='6' id='password' placeholder='SENHA' required></input>
                     <input className='flex p-2 rounded-md w-[100%] my-2' name='c_password' type="password" id='c_password' placeholder='CONFIRMAR SENHA' required></input>
