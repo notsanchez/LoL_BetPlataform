@@ -17,7 +17,7 @@ const ActiveTournaments = () => {
   return (
     <div className='grid grid-cols-4 gap-6'>
     {tournaments.map((tournament) => (
-        <div key={tournament.id} className='w-[300px] h-[490px] bg-blackbg bg-opacity-50 rounded-lg flex flex-col justify-center items-center text-white border-2 border-white'>
+        <div key={tournament.id} className='w-[300px] h-[490px] bg-blackbg bg-opacity-50 rounded-lg flex flex-col justify-center items-center text-white border-2 border-blackbg'>
             <div className='flex flex-col items-center justify-evenly drop-shadow-lg'>
                 <div className='flex flex-col items-center'>
                     <h1 className='text-2xl font-bold'>League of Legends</h1>

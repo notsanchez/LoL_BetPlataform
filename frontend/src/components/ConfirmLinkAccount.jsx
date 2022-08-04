@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
+import ErrorHandler from './ErrorHandler'
 
 const ConfirmLinkAccount = ({ uuid, name, email, phone, pw, cpf }) => {
+    const [error, setError] = useState('')
 
     const createAccount = (e) => {
         e.preventDefault()
+        setError('')
 
-        axios.get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${uuid}?api_key=RGAPI-657d93a8-e20f-435f-b446-99b81a0bb692`).then((res) => {
-            if(res.data.profileIconId === randomImgNumber){
+        axios.get(`https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${uuid}?api_key=${import.meta.env.VITE_API_KEY}`).then((res) => {
+            if (res.data.profileIconId === randomImgNumber) {
                 axios.post('http://localhost:3001/user', {
                     "id": name,
                     "puuid": res.data.puuid,
@@ -15,6 +18,8 @@ const ConfirmLinkAccount = ({ uuid, name, email, phone, pw, cpf }) => {
                     "password": pw,
                     "cpf": cpf,
                     "phone": phone,
+                    "lastGameID": "",
+                    "activeTournamentID": -1,
                     "credits": 0
                 })
                     .then((res) => {
@@ -22,24 +27,23 @@ const ConfirmLinkAccount = ({ uuid, name, email, phone, pw, cpf }) => {
                         window.location.replace("/")
                     })
             } else {
-                console.log("diferente")
+                setError('Não foi possivel vincular, os icones são diferentes')
             }
         })
     }
-
-    console.log(name, email, phone, pw, cpf)
 
     const randomImgNumber = Math.floor(Math.random() * 20) + 1
 
     const randomImg = `https://ddragon.leagueoflegends.com/cdn/10.18.1/img/profileicon/${randomImgNumber}.png`
 
-    return(
+    return (
         <div>
-            <form className='flex flex-col bg-secondaryblack items-center text-black font-semibold rounded-xl p-6 m-auto my-1 w-[100%]' id='form'>
+            <form className='flex flex-col bg-secondaryblack items-center text-black font-semibold rounded-xl p-6 m-auto my-1 w-full' id='form'>
                 <h1 className='font-semibold text-white text-xl text-center py-6'>Selecione esse icone de invocador em sua conta. Em seguida clique em finalizar cadastro</h1>
+                <ErrorHandler error={error}/>
                 <img src={randomImg} className='w-44 object-cover rounded-full' />
                 <div className='submit-container'>
-                    <button className='rounded-md mt-10 bg-primary text-white py-2 px-4 w-[100%] cursor-pointer font-semibold text-lg' type="button" onClick={createAccount}>FINALIZAR CADASTRO</button>
+                    <button className='rounded-md mt-10 bg-primary text-white py-2 px-4 w-full cursor-pointer font-semibold text-lg' type="button" onClick={createAccount}>FINALIZAR CADASTRO</button>
                 </div>
             </form>
         </div>
