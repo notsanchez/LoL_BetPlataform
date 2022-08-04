@@ -41,6 +41,7 @@ module.exports = {
       colors: {
         primary: "#6E35B8",
         blackbg: "#131313",
+        pinktext: "#DB98FF",
         secondaryblack: "#0B0B0B",
         gold: "#D6AF36",
         silver: "#A7A7AD",
