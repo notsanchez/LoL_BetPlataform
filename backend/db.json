@@ -2,24 +2,23 @@
   "user": [
     {
       "id": "12yomidkingdom",
-      "puuid": "y1JAYJogqgwj7wmeRKYYZrE1COaasDdMzWbl_2OnTd5s9AZAKC1E6RYCETlzOWoZg2LzDITVx_fkcg",
-      "email": "ajwiwjiiwd@gmail.com",
+      "puuid": "Hdiqo6A_TZ58gU4J0qLA_9HbFULcFGIuQgeiEkT1PfbmEyCfCwuktCdf45G10V-xfD4glFOgZYom6w",
+      "email": "sxsh@email.com",
       "password": "123456",
       "cpf": "483.278.329-74",
       "phone": "+55 (84)732894328",
       "lastGameID": "",
-      "activeTournamentID": -1,
       "credits": 0
     },
     {
       "id": "wolfgang dussin",
-      "puuid": "mEv1STLPlHFSxvIuB3FkSzy9VB6RJr9QKI1Ead16wwa04THV8LY-u4cj-OI0aj3XxG104vu3c58PaA",
+      "puuid": "wGUAJMwdDjWK4apFQ_mEQYiQWYMFb-jn_mSt0z3UBKdEGuGuNKMOpP_CMqcjiy6YDQ-aAx-BJznM3g",
       "email": "e@gmail.com",
       "password": "123123",
       "cpf": "123.123.123-12",
       "phone": "+55 (12)312312312",
-      "credits": 0,
-      "lastGameID": "BR1_2560832301"
+      "lastGameID": "BR1_2560832301",
+      "credits": 0
     }
   ],
   "tournament": [
@@ -39,7 +38,7 @@
     },
     {
       "id": 2,
-      "totalPlayers": 50,
+      "totalPlayers": 5,
       "reward": 25,
       "tax": 1,
       "bestOf": "MD3",
@@ -51,6 +50,7 @@
         "Jardineirov2",
         "Sona Feitiçaria"
       ]
+      
     },
     {
       "id": 3,

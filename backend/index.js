@@ -1,23 +1,15 @@
-const path = require('path')
 const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
-
+const User = require('./models/user')
 const app = express()
-
-const server = http.createServer(app)
-const io = socketio(server)
+require('./db/mongoose')
 
 const PORT = process.env.PORT || 80
 
-io.on('connection', (socket) => {
-    console.log(`New connection! ${socket.id}`)
+const user = new User({name: 'dussin'})
+user.save()
 
-    socket.on('join_room', (data) => {
-        socket.join(data)
-    })
-})
-
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`App listening to port ${PORT}`)
 })

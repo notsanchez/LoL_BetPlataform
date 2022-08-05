@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import axios from 'axios'
 import ErrorHandler from '../components/ErrorHandler'
+import socket from 'socket.io-client'
 
 const Tournament = () => {
   const { id } = useParams()
@@ -14,15 +15,25 @@ const Tournament = () => {
   const [tournament, setTournament] = useState('')
   const [players, setPlayers] = useState([])
   const [userData, setUserData] = useState('')
-  const [kdaTotal, setKdaTotal] = useState('')
+  const [kdaTotal, setKdaTotal] = useState(0)
 
+  const [unixNow, setUnixNow] = useState()
+  const [unixThen, setUnixThen] = useState()
   const [minutes, setMinutes] = useState(0)
-  const [seconds, setSeconds] = useState(0)
+  const [seconds, setSeconds] = useState(10800)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds(seconds - 1)
+    }, 1000);
+    return () => clearInterval(interval);
+  },[seconds])
 
   useEffect(() => {
     getTournament()
 
     calculateKDA()
+    console.log(Number(kdaTotal.toFixed(2)))
 
     // Pega informações do usuario
     axios.get('http://localhost:3001/user/' + user).then((res) => {
@@ -40,6 +51,11 @@ const Tournament = () => {
   // Pega informações do torneio
   const getTournament = () => {
     axios.get('http://localhost:3001/tournament/' + id).then((res) => {
+      if(res.data.totalPlayers === res.data.players.length){
+        console.log("encheu")
+      } else {
+        
+      }
       setTournament(res.data)
       setPlayers(res.data.players)
     }).catch(function (err) {
@@ -86,14 +102,14 @@ const Tournament = () => {
           for (const gameID of lastGames) {
             axios.get(`https://americas.api.riotgames.com/lol/match/v5/matches/${gameID}?api_key=${import.meta.env.VITE_API_KEY}`)
               .then((res) => {
-                console.log(res.data.info.participants.find((kda) => kda.puuid === userData.puuid).challenges['kda'])
-              }).catch((err) => {
-                console.log(err)
+                kdaSum += res.data.info.participants.find((kda) => kda.puuid === userData.puuid).challenges['kda']
+                setKdaTotal(kdaSum / lastGames.length)
               })
           }
         }
       })
   }
+  
 
   return (
     <div className='bg-blackbg h-screen'>
@@ -103,6 +119,7 @@ const Tournament = () => {
             <>
               <div className='flex flex-col items-center justify-center my-4'>
                 <h1 className='font-bold text-4xl mb-4'>League of legends</h1>
+                <h1>Tempo para o fim do torneio: {seconds}s (3 Horas)</h1>
                 <h2 className='font-bold text-xl my-1'>Jogadores no lobby: {players.length} / {tournament.totalPlayers}</h2>
                 <h2 className='font-bold text-xl my-1'>Partidas Jogadas: 0 / 3</h2>
                 {activeT ? (<h2 className='font-bold text-xl my-1'>{minutes} : {seconds}</h2>) :
@@ -163,7 +180,6 @@ const Tournament = () => {
                 <ErrorHandler error={error} />
                 <button className='rounded-md my-2 bg-primary py-2 px-4 cursor-pointer font-semibold text-lg text-white' onClick={entryTournament}>Participar</button>
               </div>
-
             </>
           )}
         </div>
